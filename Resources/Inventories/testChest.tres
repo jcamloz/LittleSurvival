@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=7 format=3 uid="uid://csaea3qm2hwny"]
+
+[ext_resource type="Script" uid="uid://iyyblqq3dofv" path="res://Scripts/ResourceScripts/InventoryData.gd" id="1_ml78k"]
+[ext_resource type="Script" uid="uid://cv7ktn7rs37bt" path="res://Scripts/ResourceScripts/TileData.gd" id="2_qfk7c"]
+[ext_resource type="Resource" uid="uid://cskqakccosrn5" path="res://Resources/Items/Moneda.tres" id="3_qfk7c"]
+[ext_resource type="Resource" uid="uid://b8ey6ib12axym" path="res://Resources/Items/Palo.tres" id="4_wftv4"]
+
+[sub_resource type="Resource" id="Resource_wftv4"]
+script = ExtResource("2_qfk7c")
+item = ExtResource("3_qfk7c")
+amount = 4
+metadata/_custom_type_script = "uid://cv7ktn7rs37bt"
+
+[sub_resource type="Resource" id="Resource_pdw10"]
+script = ExtResource("2_qfk7c")
+item = ExtResource("4_wftv4")
+amount = 4
+metadata/_custom_type_script = "uid://cv7ktn7rs37bt"
+
+[resource]
+script = ExtResource("1_ml78k")
+inventoryName = "Chest"
+slots = Array[ExtResource("2_qfk7c")]([null, SubResource("Resource_wftv4"), null, null, null, null, SubResource("Resource_pdw10"), null, null, null])
+metadata/_custom_type_script = "uid://iyyblqq3dofv"

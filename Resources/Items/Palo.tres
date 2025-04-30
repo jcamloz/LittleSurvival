@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b8ey6ib12axym"]
+
+[ext_resource type="Script" uid="uid://1kc8a5ugdv7x" path="res://Scripts/ResourceScripts/Item.gd" id="1_2ng0t"]
+[ext_resource type="Texture2D" uid="uid://bbjepvh8d05kd" path="res://Assets/PNG/Default/tile_treeTrunk.png" id="2_f424h"]
+
+[resource]
+script = ExtResource("1_2ng0t")
+name = "Palo"
+max_stack = 99
+texture = ExtResource("2_f424h")
+metadata/_custom_type_script = "uid://1kc8a5ugdv7x"
