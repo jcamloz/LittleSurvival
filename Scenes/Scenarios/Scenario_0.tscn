@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://xtcqivpxt35"]
+
+[ext_resource type="Texture2D" uid="uid://4sref436xtl0" path="res://Assets/PNG/Default/background_cloudA.png" id="1_lk46d"]
+
+[node name="Scenario" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_lk46d")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btc47a2e41jp8" path="res://Scripts/Inventory.gd" id="1_ersrd"]
 
-[node name="PanelContainer" type="PanelContainer"]
+[node name="InventoryContainer" type="PanelContainer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
