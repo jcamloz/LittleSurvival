@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4yhkq1cqhsp3"]
+
+[ext_resource type="Script" uid="uid://cihhopxjg7ayi" path="res://Scripts/ScenarioScripts/ScenarioController2.gd" id="1_2alt0"]
+[ext_resource type="Texture2D" uid="uid://b46xvn8hfaukp" path="res://Assets/pixel_bg.png" id="2_rgrgg"]
+[ext_resource type="PackedScene" uid="uid://b0nfnl4gnviwm" path="res://Scenes/ToolButton.tscn" id="3_emaea"]
+
+[node name="Scenario" type="Node2D"]
+script = ExtResource("1_2alt0")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 1.0
+offset_right = 1154.0
+offset_bottom = 646.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rgrgg")
+expand_mode = 2
+
+[node name="AxeButton" parent="." instance=ExtResource("3_emaea")]
+
+[connection signal="pressed" from="AxeButton" to="." method="_on_axe_button_pressed" binds= ["axe"]]

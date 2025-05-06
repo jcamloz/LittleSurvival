@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://u5xuhtbflbmq"]
+
+[ext_resource type="Script" uid="uid://1kc8a5ugdv7x" path="res://Scripts/ResourceScripts/Item.gd" id="1_2v262"]
+[ext_resource type="Texture2D" uid="uid://cw5bgq5pqvl3b" path="res://Assets/PNG/Default/tile_crateSmall.png" id="2_beh6a"]
+
+[resource]
+script = ExtResource("1_2v262")
+name = "Madera"
+max_stack = 99
+texture = ExtResource("2_beh6a")
+metadata/_custom_type_script = "uid://1kc8a5ugdv7x"
