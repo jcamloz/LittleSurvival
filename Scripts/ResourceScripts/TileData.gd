@@ -14,3 +14,6 @@ signal data_changed
 		if amount != clamped_value:
 			amount = clamped_value
 			emit_signal("data_changed")
+
+func is_empty():
+	return amount == 0 || item == null || item.texture == null

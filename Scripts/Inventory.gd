@@ -45,3 +45,15 @@ func loadInv():
 func _on_slot_updated():
 	if inventory:
 		inventory.debug_print()
+
+func add_item(item : Item, amount : int):
+	var index = 0
+	var assigned = false
+	
+	while index < inventory.slots.size() && !assigned :
+		assigned = inventory.slots[index].is_empty()
+		if assigned:
+			print("a")
+			inventory.slots[index].item = item
+			inventory.slots[index].amount = amount
+		index+=1

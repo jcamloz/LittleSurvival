@@ -13,7 +13,7 @@ var tile_data : Tile_data = null
 func set_item(slotData : Tile_data):
 	tile_data = slotData
 	#ASEGURO QUE AL CARGAR LOS DATOS, EL ARRAY ESTÉ CORRECTO (INCLUSO SI SE CORRIGE SOLO, POR SI ACASO)
-	if slotData == null or slotData.item == null or slotData.amount == 0:
+	if slotData == null or slotData.is_empty():
 		itemSlot.texture = null
 	else:
 		itemSlot.texture = slotData.item.texture
