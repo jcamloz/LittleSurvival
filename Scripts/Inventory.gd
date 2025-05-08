@@ -54,19 +54,35 @@ func _on_slot_updated():
 	#positivo si sobra
 #Sobra decir que 0 es que se ha añadido todo
 
-func add_item(item : Item, amount : int):
-	var index = 0
-	var assigned = false
-	
-	var inv_slot  = null
+func add_item(item: Item, amount: int):
+	var index = search_next_free_item(item)
+	var inv_slot = null
 	#Asigno el sobrante a la cantidad pasada por parámetro de modo que si no añade nada, el sobrante es todo
 	var left_amount = amount
 	
-	while index < inventory.slots.size() && !assigned :
+	if index > -1:
 		inv_slot = inventory.slots[index]
-		assigned = inv_slot.is_empty() || inv_slot.item == item && inv_slot.amount < item.max_stack
+		#Guardo el sobrante (si es positivo, sobra y por tanto no se ha añadido todo lo que se incicó)
+		left_amount = (amount + inv_slot.amount) - item.max_stack
+		
+		inv_slot.amount += amount
+		if left_amount > 0 && left_amount != amount:
+			left_amount = add_item(item, left_amount)
+	else:
+		left_amount = add_new_item(item, amount)
+	return left_amount
+
+func add_new_item(item: Item, amount: int):
+	var index = 0
+	var assigned = false
+	var inv_slot = null
+	#Asigno el sobrante a la cantidad pasada por parámetro de modo que si no añade nada, el sobrante es todo
+	var left_amount = amount
+	
+	while !assigned && index < inventory.slots.size():
+		inv_slot = inventory.slots[index]
+		assigned = inv_slot.is_empty()
 		if assigned:
-			#Guardo el sobrante (si es positivo, sobra y por tanto no se ha añadido todo lo que se incicó)
 			left_amount = (amount + inv_slot.amount) - item.max_stack
 			inv_slot.item = item
 			inv_slot.amount += amount
@@ -74,3 +90,42 @@ func add_item(item : Item, amount : int):
 				left_amount = add_item(item, left_amount)
 		index+=1
 	return left_amount
+
+#Función que busca un ítem con espacio disponible para almacenar más
+func search_next_free_item(item: Item) -> int:
+	var item_index = -1
+	
+	#Empiezo a buscar desde la primera aparición del item en el inventario
+	var index = search_item(item)
+	var found = false
+	var inv_slot = null
+	
+	if index > -1:
+		while !found && index < inventory.slots.size():
+			inv_slot = inventory.slots[index]
+			#Contará como encontrado y válido si el item es igual y le queda al menos 1 espacio libre
+			found = !inv_slot.is_empty() && inv_slot.item == item && inv_slot.amount < item.max_stack
+			if found:
+				item_index = index
+			index+=1
+		
+	return item_index
+
+#Función que permite buscar en el inventario el item deseado
+func search_item(item: Item) -> int:
+	var item_index = -1
+	
+	var found = false
+	var index = 0
+	var inv_slot = null
+	
+	while !found && index < inventory.slots.size():
+		inv_slot = inventory.slots[index]
+		
+		found = !inv_slot.is_empty() && inv_slot.item == item
+		if found:
+			item_index = index
+		
+		index+=1
+	
+	return item_index

@@ -8,7 +8,7 @@ func _on_axe_button_pressed(tool_name : String):
 	else:
 		print("No existe la herramienta: " , tool_name)
 
-	Player.inventory.add_item(preload("res://Resources/Items/Madera.tres"), randi_range(1, 3))
+	print(Player.inventory.add_item(preload("res://Resources/Items/Madera.tres"), randi_range(1, 3)))#randi_range(1, 3)
 
 func _on_explore_button_pressed():
 	var loot = lootTable.get_random_item(Player.tool_levels["axe"])
