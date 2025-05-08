@@ -39,21 +39,38 @@ func loadInv():
 		i.set_item(slot_data)
 		
 		#DEBUG -> PARA CONECTAR LA SEÑAR AL MOVER LOS ITEMS DEL INVENTARIO
-		i.connect("slot_updated", Callable(self, "_on_slot_updated"))
+		#i.connect("slot_updated", Callable(self, "_on_slot_updated"))
 
 #DEBUG -> PARA MOSTRAR EL INVENTARIO AL QUE SE MUEVE EL ITEM
+"""
 func _on_slot_updated():
 	if inventory:
 		inventory.debug_print()
+"""
+
+#Añade los n items al inventario, excepto que no sea posible
+#Devuelve la cantidad sobrante: 
+	#negativo si no sobra, sino falta para llegar al máximo
+	#positivo si sobra
+#Sobra decir que 0 es que se ha añadido todo
 
 func add_item(item : Item, amount : int):
 	var index = 0
 	var assigned = false
 	
+	var inv_slot  = null
+	#Asigno el sobrante a la cantidad pasada por parámetro de modo que si no añade nada, el sobrante es todo
+	var left_amount = amount
+	
 	while index < inventory.slots.size() && !assigned :
-		assigned = inventory.slots[index].is_empty()
+		inv_slot = inventory.slots[index]
+		assigned = inv_slot.is_empty() || inv_slot.item == item && inv_slot.amount < item.max_stack
 		if assigned:
-			print("a")
-			inventory.slots[index].item = item
-			inventory.slots[index].amount = amount
+			#Guardo el sobrante (si es positivo, sobra y por tanto no se ha añadido todo lo que se incicó)
+			left_amount = (amount + inv_slot.amount) - item.max_stack
+			inv_slot.item = item
+			inv_slot.amount += amount
+			if left_amount > 0 && left_amount != amount:
+				left_amount = add_item(item, left_amount)
 		index+=1
+	return left_amount

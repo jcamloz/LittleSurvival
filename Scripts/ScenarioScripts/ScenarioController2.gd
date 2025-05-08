@@ -6,4 +6,4 @@ func _on_axe_button_pressed(tool_name : String):
 	else:
 		print("No existe la herramienta: " , tool_name)
 
-	Player.inventory.add_item(preload("res://Resources/Items/Madera.tres"), 99)
+	print(Player.inventory.add_item(preload("res://Resources/Items/Madera.tres"), 46))#randi_range(1, 3)
