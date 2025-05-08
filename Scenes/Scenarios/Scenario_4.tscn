@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4yhkq1cqhsp3"]
+[gd_scene load_steps=5 format=3 uid="uid://b4yhkq1cqhsp3"]
 
-[ext_resource type="Script" uid="uid://cihhopxjg7ayi" path="res://Scripts/ScenarioScripts/ScenarioController2.gd" id="1_2alt0"]
+[ext_resource type="Script" uid="uid://cihhopxjg7ayi" path="res://Scripts/ScenarioScripts/ScenarioController4.gd" id="1_2alt0"]
+[ext_resource type="Resource" uid="uid://cpbl87yek0wf3" path="res://Resources/LootTables/FishingLoot.tres" id="2_emaea"]
 [ext_resource type="Texture2D" uid="uid://b46xvn8hfaukp" path="res://Assets/pixel_bg.png" id="2_rgrgg"]
 [ext_resource type="PackedScene" uid="uid://b0nfnl4gnviwm" path="res://Scenes/ToolButton.tscn" id="3_emaea"]
 
 [node name="Scenario" type="Node2D"]
 script = ExtResource("1_2alt0")
+lootTable = ExtResource("2_emaea")
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -23,4 +25,12 @@ expand_mode = 2
 
 [node name="AxeButton" parent="." instance=ExtResource("3_emaea")]
 
+[node name="ExploreButton" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 46.0
+offset_right = 616.0
+offset_bottom = 118.0
+text = "Explorar"
+
 [connection signal="pressed" from="AxeButton" to="." method="_on_axe_button_pressed" binds= ["axe"]]
+[connection signal="pressed" from="ExploreButton" to="." method="_on_explore_button_pressed"]
