@@ -1,7 +1,7 @@
 #Esta clase es un singletone, por lo que se puede acceder desde otro script
 class_name mainPlayer extends Sprite2D
 
-@onready var inventory : Inventory = $Inventory
+@onready var inventory : Inventory
 
 #Stats del jugador
 var life: int = 100
@@ -16,10 +16,6 @@ var tool_levels = {
 	"pickaxe" : 1
 }
 
-func _ready():
-	#Asigno de forma global la referencia al inventario
-	Player.inventory = inventory
-
 #Método que mejora una de las herramientas
 func upgrade_tool(tool_name: String):
 	tool_name = tool_name.to_lower()
@@ -30,4 +26,5 @@ func upgrade_tool(tool_name: String):
 
 func _process(delta):
 	if Input.is_action_just_pressed("inventory"):
-		inventory.visible = true
+		print(self)
+		inventory.toggle_visibility()

@@ -14,6 +14,7 @@ var scenarios = [
 func _ready():
 	randomize()
 	load_scenario(current_index)
+	Player.inventory = $Player/Inventory
 
 #Se encarga de cargar el escenario actual
 func load_scenario(index):

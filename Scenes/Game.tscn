@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctawnk0s888mh"]
+[gd_scene load_steps=7 format=3 uid="uid://ctawnk0s888mh"]
 
 [ext_resource type="Script" uid="uid://equn5ncpg2rk" path="res://Scripts/Game.gd" id="1_7lihs"]
 [ext_resource type="Texture2D" uid="uid://w0b5tok7yj4u" path="res://Assets/PNG/Default/character_roundPurple.png" id="1_iukft"]
 [ext_resource type="Texture2D" uid="uid://bidcqlqhfros6" path="res://Assets/PNG/Default/tile_arrowLeft.png" id="2_b2bpf"]
 [ext_resource type="Texture2D" uid="uid://gxeef376oari" path="res://Assets/PNG/Default/tile_arrowRight.png" id="3_7lihs"]
-[ext_resource type="Script" uid="uid://bbkj775fbfibt" path="res://Scripts/Player.gd" id="3_fgofq"]
 [ext_resource type="PackedScene" uid="uid://443hsy30jycs" path="res://Scenes/Inventory.tscn" id="4_fgofq"]
 [ext_resource type="Resource" uid="uid://0im7somcwcp" path="res://Resources/Inventories/PlayerInv.tres" id="5_2irst"]
 
@@ -18,12 +17,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" type="Sprite2D" parent="."]
 position = Vector2(216, 354)
 scale = Vector2(1.16016, 1.30078)
 texture = ExtResource("1_iukft")
-script = ExtResource("3_fgofq")
 
 [node name="Inventory" parent="Player" instance=ExtResource("4_fgofq")]
 anchors_preset = 0

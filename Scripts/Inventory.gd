@@ -12,6 +12,8 @@ class_name Inventory extends PanelContainer
 @onready var slot = preload("res://Scenes/inv_slot.tscn")
 
 func _ready():
+	#Al crearse será invisible
+	visible = false
 	if inventory != null:
 		invNameLabel.text = inventory.inventoryName
 		# Itera a través de los slots del inventario
@@ -47,6 +49,9 @@ func _on_slot_updated():
 	if inventory:
 		inventory.debug_print()
 """
+
+func toggle_visibility():
+	visible = not visible
 
 #Añade los n items al inventario, excepto que no sea posible
 #Devuelve la cantidad sobrante: 
