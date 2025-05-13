@@ -27,3 +27,7 @@ func upgrade_tool(tool_name: String):
 		tool_levels[tool_name] += 1
 	else:
 		push_warning("Intentaste mejorar una herramienta que no existe: %s" % tool_name)
+
+func _process(delta):
+	if Input.is_action_just_pressed("inventory"):
+		inventory.visible = true

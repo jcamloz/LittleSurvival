@@ -36,10 +36,14 @@ func clear_scenario():
 func _on_left_arrow_pressed():
 	if current_index > 0:
 		current_index -= 1
+		TransitionScreen.transition()
+		await TransitionScreen.on_transition_finished
 		load_scenario(current_index)
 
 #Aumento en 1 el índie del escenario actual y lo cargo
 func _on_right_arrow_pressed():
 	if current_index < scenarios.size() - 1:
 		current_index += 1
+		TransitionScreen.transition()
+		await TransitionScreen.on_transition_finished
 		load_scenario(current_index)
