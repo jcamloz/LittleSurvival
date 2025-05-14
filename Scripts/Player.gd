@@ -26,5 +26,4 @@ func upgrade_tool(tool_name: String):
 
 func _process(delta):
 	if Input.is_action_just_pressed("inventory"):
-		print(self)
 		inventory.toggle_visibility()

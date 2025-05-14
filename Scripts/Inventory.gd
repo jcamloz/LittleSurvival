@@ -13,7 +13,7 @@ class_name Inventory extends PanelContainer
 
 func _ready():
 	#Al crearse será invisible
-	visible = false
+	#visible = false
 	if inventory != null:
 		invNameLabel.text = inventory.inventoryName
 		# Itera a través de los slots del inventario
@@ -96,6 +96,25 @@ func add_new_item(item: Item, amount: int):
 		index+=1
 	return left_amount
 
+#Devuelve la cantidad que no ha podido borrar de todo lo indicado
+#Ejemplo, se pide borrar 4 elementos pero solo se han podido borrar 2, devuelve -2
+#Eso no significa que no queden en el inventario, solo indica lo que falta por borrar de lo indicado
+func remove_item(item: Item, amount: int):
+	var index = search_item(item)
+	var inv_slot = null
+	
+	#left_amount en esta función representa la cantidad a eliminar restante, no lo que queda de ese item en el inventario
+	var left_amount = amount
+	
+	if index > -1:
+		inv_slot = inventory.slots[index]
+		left_amount = (amount - inv_slot.amount)
+		
+		inv_slot.amount -= amount
+		if left_amount > 0 && left_amount != amount:
+			left_amount = remove_item(item, left_amount)
+	return left_amount
+
 #Función que busca un ítem con espacio disponible para almacenar más
 func search_next_free_item(item: Item) -> int:
 	var item_index = -1
@@ -134,3 +153,16 @@ func search_item(item: Item) -> int:
 		index+=1
 	
 	return item_index
+
+func get_amount(item: Item):
+	var amount = 0
+	var index = search_item(item)
+	var inv_slot = null
+	
+	if index > -1:
+		while index < inventory.slots.size():
+			inv_slot = inventory.slots[index]
+			if !inv_slot.is_empty() && inv_slot.item == item:
+				amount+=inv_slot.amount
+			index+=1
+	return amount
