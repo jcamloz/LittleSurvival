@@ -154,6 +154,7 @@ func search_item(item: Item) -> int:
 	
 	return item_index
 
+#Función que devuelve la cantidad que hay de un item
 func get_amount(item: Item):
 	var amount = 0
 	var index = search_item(item)

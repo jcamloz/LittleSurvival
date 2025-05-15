@@ -1,4 +1,4 @@
-class_name ScenarioController extends Node2D
+class_name ScenarioController4 extends Node2D
 
 @export var lootTable : LootTable
 

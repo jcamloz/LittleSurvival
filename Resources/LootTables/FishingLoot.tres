@@ -1,28 +1,28 @@
 [gd_resource type="Resource" script_class="LootTable" load_steps=9 format=3 uid="uid://cpbl87yek0wf3"]
 
 [ext_resource type="Script" uid="uid://b6hpvty05mrsd" path="res://Scripts/ResourceScripts/LootItem.gd" id="1_ksrd3"]
-[ext_resource type="Resource" uid="uid://b8ey6ib12axym" path="res://Resources/Items/Palo.tres" id="2_eybau"]
+[ext_resource type="Resource" uid="uid://b8ey6ib12axym" path="res://Resources/Items/Palo.tres" id="2_hqjgw"]
 [ext_resource type="Script" uid="uid://dvmcvn73olrsw" path="res://Scripts/ResourceScripts/LootTable.gd" id="2_txfu4"]
-[ext_resource type="Resource" uid="uid://cskqakccosrn5" path="res://Resources/Items/Moneda.tres" id="3_kbt0i"]
-[ext_resource type="Resource" uid="uid://u5xuhtbflbmq" path="res://Resources/Items/Madera.tres" id="4_h77i7"]
+[ext_resource type="Resource" uid="uid://cskqakccosrn5" path="res://Resources/Items/Moneda.tres" id="3_ev2ed"]
+[ext_resource type="Resource" uid="uid://u5xuhtbflbmq" path="res://Resources/Items/Madera.tres" id="4_yy5d2"]
 
 [sub_resource type="Resource" id="Resource_pqbkm"]
 script = ExtResource("1_ksrd3")
-item = ExtResource("2_eybau")
+item = ExtResource("2_hqjgw")
 amount = 3
 probability = 0.7
 metadata/_custom_type_script = "uid://b6hpvty05mrsd"
 
 [sub_resource type="Resource" id="Resource_2qy1x"]
 script = ExtResource("1_ksrd3")
-item = ExtResource("3_kbt0i")
+item = ExtResource("3_ev2ed")
 amount = 1
 probability = 0.1
 metadata/_custom_type_script = "uid://b6hpvty05mrsd"
 
 [sub_resource type="Resource" id="Resource_ybynd"]
 script = ExtResource("1_ksrd3")
-item = ExtResource("4_h77i7")
+item = ExtResource("4_yy5d2")
 amount = 2
 probability = 0.5
 metadata/_custom_type_script = "uid://b6hpvty05mrsd"

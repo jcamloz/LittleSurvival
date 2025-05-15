@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpjvvab7jj1vg"]
+
+[ext_resource type="Script" uid="uid://sa2vl3peh0ln" path="res://Scripts/Craft_menu.gd" id="1_r0vih"]
+[ext_resource type="Resource" uid="uid://c7opwoo1y8eg8" path="res://Resources/Crafts/CraftList.tres" id="2_aag6h"]
+[ext_resource type="PackedScene" uid="uid://de65btnyy1lye" path="res://Scenes/slot.tscn" id="3_aag6h"]
+
+[node name="CraftMenu" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.5
+offset_top = -122.5
+offset_right = 213.5
+offset_bottom = 122.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r0vih")
+itemCraftList = ExtResource("2_aag6h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelRecipes" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Recetas"
+horizontal_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+allow_search = false
+auto_width = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="LabelIngredients" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Ingredientes"
+
+[node name="GridIngredients" type="GridContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+columns = 5
+
+[node name="LabelResult" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Resultado"
+
+[node name="Slot" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("3_aag6h")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Crear"
