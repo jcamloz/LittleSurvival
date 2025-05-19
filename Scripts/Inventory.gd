@@ -1,5 +1,6 @@
 class_name Inventory extends PanelContainer
 
+@export var show : bool = false
 @export var inventory : InventoryData:
 	set(value):
 		#Si el inventario importado tiene datos, llama a la función ensure_slots()
@@ -11,9 +12,12 @@ class_name Inventory extends PanelContainer
 @onready var invNameLabel = $VBoxContainer2/InventoryName
 @onready var slot = preload("res://Scenes/inv_slot.tscn")
 
+# Copia de los slots actuales
+var saved_slots: Array = []
+
 func _ready():
-	#Al crearse será invisible
-	#visible = false
+	#Al crearse será visible o invisible según se haya indicado al crear el inventario
+	visible = show
 	if inventory != null:
 		invNameLabel.text = inventory.inventoryName
 		# Itera a través de los slots del inventario
@@ -27,14 +31,41 @@ func _ready():
 			invGrid.add_child(slot_instance)
 
 		# Carga el inventario (asigna las texturas, cantidades, etc.)
-		loadInv()
+		prepareInv()
+		#Guardo una copia inicial del inventario
+		self.save_data()
+
+#Guardo el estado actual del inventario
+func save_data():
+	#Limpio lo que había antes
+	saved_slots.clear()
+	#Esta variable sirve para guardar el contenido actual del inventario de forma profunda,
+	#de modo que no se crearán nuevas instancias de items y por lo tanto el juego funcionará sin problema
+	var tile_copy = Tile_data.new()
+	
+	for slot in inventory.slots:
+		tile_copy.item = slot.item
+		tile_copy.amount = slot.amount
+		#Uso la función duplicate para obtener una copia del item y cantidad sin enlazarlo con el aniguo item ni cantidad
+		saved_slots.append(tile_copy.duplicate())
+
+#Función que permite realizar un cargado de datos desde el último guardado
+func rollback():
+	#En caso de error por culpa del programador (inventario diferente al guardado), se notificará de ello
+	if saved_slots.size() != inventory.slots.size():
+		push_error("Rollback fallido: El tamaño de los slots no coincide.")
+	else:
+		#Guardo el item y cantidad uno a uno para mayor seguridad ante enlace de datos
+		for i in range(saved_slots.size()):
+			inventory.slots[i].item = saved_slots[i].item
+			inventory.slots[i].amount = saved_slots[i].amount
 
 func _on_tile_data_changed(index):
 	# Obtiene el hijo (slot) correspondiente y actualiza su visualización
 	var child = invGrid.get_child(index)
 	child.set_item(inventory.slots[index])
 
-func loadInv():
+func prepareInv():
 	# Recorre los hijos (slots) y asigna los datos correspondientes
 	for i in invGrid.get_children():
 		var slot_data = inventory.slots[i.get_index()]
@@ -54,10 +85,10 @@ func toggle_visibility():
 	visible = not visible
 
 #Añade los n items al inventario, excepto que no sea posible
-#Devuelve la cantidad sobrante: 
+#Devuelve la cantidad sobrante relativa al máximo del inventario: 
 	#negativo si no sobra, sino falta para llegar al máximo
 	#positivo si sobra
-#Sobra decir que 0 es que se ha añadido todo
+#Sobra decir que 0 es que se ha ocupado el 100% del espacio
 
 func add_item(item: Item, amount: int):
 	var index = search_next_free_item(item)

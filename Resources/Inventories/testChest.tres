@@ -19,6 +19,6 @@ metadata/_custom_type_script = "uid://cv7ktn7rs37bt"
 
 [resource]
 script = ExtResource("1_ml78k")
-inventoryName = "Chest"
+inventoryName = "Cofre"
 slots = Array[ExtResource("2_qfk7c")]([null, SubResource("Resource_wftv4"), null, null, null, null, SubResource("Resource_pdw10"), null, null, null])
 metadata/_custom_type_script = "uid://iyyblqq3dofv"

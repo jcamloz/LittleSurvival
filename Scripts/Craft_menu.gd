@@ -27,8 +27,12 @@ func load_recipe(craftRecipe : ItemCraft):
 		var slotInstance : Slot = itemSlot.instantiate()
 		gridIngredients.add_child(slotInstance)
 		slotInstance.set_item(itemNeeded)
-	print(craftRecipe.can_craft($HBoxContainer/VBoxContainer2/InventoryContainer))
 
 func clear_grid_container():
 	for child in gridIngredients.get_children():
 		child.queue_free()
+
+func _on_craft_button_pressed():
+	var craftRecipe = craftRecipes[itemList.get_selected_items()[0]]
+	print(craftRecipe.can_craft(Player.inventory))
+	craftRecipe.craft(Player.inventory)
