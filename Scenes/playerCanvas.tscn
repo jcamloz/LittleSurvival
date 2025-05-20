@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cte54yk1550uk"]
+
+[ext_resource type="Texture2D" uid="uid://w0b5tok7yj4u" path="res://Assets/PNG/Default/character_roundPurple.png" id="1_fwu0x"]
+[ext_resource type="PackedScene" uid="uid://443hsy30jycs" path="res://Scenes/Inventory.tscn" id="2_mqrne"]
+[ext_resource type="Script" uid="uid://bh5gkqfwtqsqp" path="res://Scripts/Player_canvas.gd" id="2_v5unh"]
+[ext_resource type="Resource" uid="uid://0im7somcwcp" path="res://Resources/Inventories/PlayerInv.tres" id="3_v5unh"]
+
+[node name="Player" type="Sprite2D"]
+scale = Vector2(1.16016, 1.30078)
+texture = ExtResource("1_fwu0x")
+script = ExtResource("2_v5unh")
+
+[node name="MenuBackground" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -278.0
+offset_right = 755.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ExtraContent" type="Control" parent="MenuBackground"]
+layout_mode = 2
+
+[node name="Inventory" parent="." instance=ExtResource("2_mqrne")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 161.185
+offset_top = -136.841
+offset_right = 198.185
+offset_bottom = -109.841
+grow_horizontal = 1
+grow_vertical = 1
+inventory = ExtResource("3_v5unh")
+metadata/_edit_use_anchors_ = true

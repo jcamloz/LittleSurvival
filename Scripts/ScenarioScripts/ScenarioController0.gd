@@ -6,12 +6,10 @@ class_name ScenarioController0 extends Node2D
 func _ready():
 	craftMenu.visible = false
 	storageMenu.visible = false
-
-func toggleCraftMenuVisibility():
-	craftMenu.visible = not craftMenu.visible
+	Player.extraContent = preload("res://Scenes/CraftMenu.tscn")
 
 func toggleStorageMenuVisibility():
 	storageMenu.visible = not storageMenu.visible
 
 func _on_craft_button_pressed():
-	toggleCraftMenuVisibility()
+	Player.extraOpen = true

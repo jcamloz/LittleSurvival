@@ -13,8 +13,8 @@ var scenarios = [
 
 func _ready():
 	randomize()
+	Player.assignedPlayer = $Player
 	load_scenario(current_index)
-	Player.inventory = $Player/Inventory
 
 #Se encarga de cargar el escenario actual
 func load_scenario(index):
@@ -30,6 +30,9 @@ func load_scenario(index):
 
 #Destruyo cualquier hijo de ScenarioContainer
 func clear_scenario():
+	#Le asigno al contenido extra del Player null para limpiarlo
+	if Player.extraContent != null:
+		Player.extraContent = null
 	for child in scenario_container.get_children():
 		child.queue_free()
 

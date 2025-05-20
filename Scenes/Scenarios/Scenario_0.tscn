@@ -48,9 +48,9 @@ show = true
 inventory = ExtResource("6_s3jvr")
 
 [node name="CraftMenu" parent="." instance=ExtResource("6_1k5cu")]
-offset_left = 359.0
-offset_top = 61.0
-offset_right = 786.0
-offset_bottom = 306.0
+offset_left = 350.0
+offset_top = 224.0
+offset_right = 777.0
+offset_bottom = 469.0
 
 [connection signal="pressed" from="CraftButton" to="." method="_on_craft_button_pressed"]
