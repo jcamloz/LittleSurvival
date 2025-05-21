@@ -1,5 +1,5 @@
 #Esta clase es un singletone, por lo que se puede acceder desde otro script
-class_name mainPlayer extends Sprite2D
+class_name mainPlayer extends Node2D
 
 signal playerReady
 signal menuVisibleChange

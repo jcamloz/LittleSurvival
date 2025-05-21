@@ -1,12 +1,11 @@
-class_name playerData extends Sprite2D
+class_name playerData extends AnimatedSprite2D
 
 #Esto es el script de los datos del contenido del player pintado en la pantalla
 #Cargará solo los datos del player, así como un menú extra para realizar ciertas acciones, como los crafteos o el almacén
 
-@onready var menuBackground = $MenuBackground
-@onready var extraContent = $MenuBackground/ExtraContent
-@onready var inventory = $Inventory
-
+@onready var menuBackground = $MenuCanvas/MenuBackground
+@onready var extraContent = $MenuCanvas/MenuBackground/ExtraContent
+@onready var inventory = $MenuCanvas/MenuBackground/Inventory
 
 #Enlazo la señal "menuVisibleChange" con la función "_on_menu_background_change"
 func _ready():

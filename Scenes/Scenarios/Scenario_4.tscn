@@ -24,6 +24,10 @@ texture = ExtResource("2_rgrgg")
 expand_mode = 2
 
 [node name="AxeButton" parent="." instance=ExtResource("3_emaea")]
+offset_left = 534.0
+offset_top = 389.0
+offset_right = 606.0
+offset_bottom = 461.0
 
 [node name="ExploreButton" type="Button" parent="."]
 offset_left = 512.0
@@ -32,5 +36,5 @@ offset_right = 616.0
 offset_bottom = 118.0
 text = "Explorar"
 
-[connection signal="pressed" from="AxeButton" to="." method="_on_axe_button_pressed" binds= ["axe"]]
+[connection signal="pressed" from="AxeButton" to="." method="_on_axe_button_pressed" binds= [&"axe"]]
 [connection signal="pressed" from="ExploreButton" to="." method="_on_explore_button_pressed"]
