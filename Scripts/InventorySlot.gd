@@ -2,9 +2,11 @@ class_name Inventory_slot extends TextureRect
 
 @onready var itemSlot = $ItemSlot
 @onready var amountLabel = $Label
+@onready var hoverPopUp = $HoverPopUp
 
 signal slot_updated  # DEBUG -> SEÑALA QUE SE HA CAMBIADO UN ITEM DE LUGAR
 
+var mouse_inside = false
 var focus_texture = preload("res://Assets/PNG/Default/ui_select.png")
 var unfocus_texture = preload("res://Assets/PNG/Default/ui_box.png")
 
@@ -22,6 +24,9 @@ func set_item(slotData : Tile_data):
 	else:
 		itemSlot.texture = slotData.item.texture
 	update_label()
+	#Fuerzo la función _on_mouse_entered si el ratón está sobre un item que ha cambiado
+	if mouse_inside:
+		_on_mouse_entered()
 
 func update_label():
 	if tile_data && tile_data.amount > 0:
@@ -30,16 +35,29 @@ func update_label():
 		amountLabel.text = ""
 
 func _on_mouse_entered():
-	self.texture = focus_texture
-	
+	var itemSelected = null
+	mouse_inside = true
+	texture = focus_texture
 	#Si hay un item en la casilla, el cursor cambiará al icono del dedo, si no, vuelve a ser la flecha
-	if tile_data.item != null:
+	if !tile_data.is_empty():
 		mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		#Si el item es comida, muestro un popUp con la información de lo que cura
+		if tile_data.item is Food:
+			itemSelected = tile_data.item as Food
+		else:
+			itemSelected = tile_data.item
+		hoverPopUp.show_info(itemSelected.name, (("Curación: +" + str(itemSelected.heal) + "\nSaciedad: +" + str(itemSelected.hunger_recovery))) if itemSelected is Food else "")
 	else:
 		mouse_default_cursor_shape = Control.CURSOR_ARROW
+		if hoverPopUp.visible:
+			hoverPopUp.hide_info()
 
 func _on_mouse_exited():
-	self.texture = unfocus_texture
+	mouse_inside = false
+	texture = unfocus_texture
+	#Escondo el popUp
+	if hoverPopUp.visible:
+			hoverPopUp.hide_info()
 
 # --- DRAG & DROP ---
 

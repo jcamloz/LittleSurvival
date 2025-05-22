@@ -8,9 +8,10 @@ class_name Inventory extends PanelContainer
 			value.ensure_slots()
 		inventory = value
 
-@onready var invGrid = $VBoxContainer2/InventoryGrid
-@onready var invNameLabel = $VBoxContainer2/InventoryName
+@onready var invGrid = $VBoxContainer/InventoryGrid
+@onready var invNameLabel = $VBoxContainer/InventoryName
 @onready var slot = preload("res://Scenes/inv_slot.tscn")
+
 
 # Copia de los slots actuales
 var saved_slots: Array = []
@@ -28,13 +29,13 @@ func _ready():
 			item.connect("data_changed", Callable(self, "_on_tile_data_changed").bind(i))
 			# Instancia el slot visual y lo añáde como hijo
 			var slot_instance = slot.instantiate()
+			
 			invGrid.add_child(slot_instance)
 
 		# Carga el inventario (asigna las texturas, cantidades, etc.)
 		prepareInv()
 		#Guardo una copia inicial del inventario
-		self.save_data()
-
+		save_data()
 #Guardo el estado actual del inventario
 func save_data():
 	#Limpio lo que había antes

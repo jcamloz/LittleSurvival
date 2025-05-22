@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_rdr26")
 heal = 5
-energy_recovery = 5
-name = "Apple"
+hunger_recovery = 5
+name = "Manzana"
 max_stack = 99
 texture = ExtResource("2_3k68o")
 metadata/_custom_type_script = "uid://badyytl0qg18l"
