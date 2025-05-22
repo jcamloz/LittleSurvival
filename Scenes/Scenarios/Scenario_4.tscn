@@ -1,9 +1,71 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4yhkq1cqhsp3"]
+[gd_scene load_steps=15 format=3 uid="uid://b4yhkq1cqhsp3"]
 
 [ext_resource type="Script" uid="uid://cihhopxjg7ayi" path="res://Scripts/ScenarioScripts/ScenarioController4.gd" id="1_2alt0"]
 [ext_resource type="Resource" uid="uid://cpbl87yek0wf3" path="res://Resources/LootTables/FishingLoot.tres" id="2_emaea"]
 [ext_resource type="Texture2D" uid="uid://b46xvn8hfaukp" path="res://Assets/pixel_bg.png" id="2_rgrgg"]
 [ext_resource type="PackedScene" uid="uid://b0nfnl4gnviwm" path="res://Scenes/ToolButton.tscn" id="3_emaea"]
+[ext_resource type="Texture2D" uid="uid://bb5ip28cidt6l" path="res://Assets/Axe.png" id="5_emaea"]
+[ext_resource type="Texture2D" uid="uid://bl5r2kg85hfk8" path="res://Assets/Chop.png" id="6_kwpsl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk30e"]
+atlas = ExtResource("6_kwpsl")
+region = Rect2(1344, 0, 224, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp0bq"]
+atlas = ExtResource("6_kwpsl")
+region = Rect2(0, 0, 224, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x675h"]
+atlas = ExtResource("6_kwpsl")
+region = Rect2(224, 0, 224, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vrnc"]
+atlas = ExtResource("6_kwpsl")
+region = Rect2(448, 0, 224, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7psk0"]
+atlas = ExtResource("6_kwpsl")
+region = Rect2(672, 0, 224, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdb3n"]
+atlas = ExtResource("6_kwpsl")
+region = Rect2(896, 0, 224, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6wrl"]
+atlas = ExtResource("6_kwpsl")
+region = Rect2(1120, 0, 224, 164)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ceg6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk30e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp0bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x675h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vrnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7psk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdb3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6wrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk30e")
+}],
+"loop": false,
+"name": &"Chop",
+"speed": 5.0
+}]
 
 [node name="Scenario" type="Node2D"]
 script = ExtResource("1_2alt0")
@@ -24,10 +86,13 @@ texture = ExtResource("2_rgrgg")
 expand_mode = 2
 
 [node name="AxeButton" parent="." instance=ExtResource("3_emaea")]
-offset_left = 534.0
-offset_top = 389.0
-offset_right = 606.0
-offset_bottom = 461.0
+offset_left = 545.0
+offset_top = 387.0
+offset_right = 615.0
+offset_bottom = 458.0
+icon = ExtResource("5_emaea")
+icon_alignment = 1
+expand_icon = true
 
 [node name="ExploreButton" type="Button" parent="."]
 offset_left = 512.0
@@ -35,6 +100,13 @@ offset_top = 46.0
 offset_right = 616.0
 offset_bottom = 118.0
 text = "Explorar"
+
+[node name="ChopAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(575, 501)
+scale = Vector2(0.609756, 0.609756)
+sprite_frames = SubResource("SpriteFrames_3ceg6")
+animation = &"Chop"
+speed_scale = 2.5
 
 [connection signal="pressed" from="AxeButton" to="." method="_on_axe_button_pressed" binds= [&"axe"]]
 [connection signal="pressed" from="ExploreButton" to="." method="_on_explore_button_pressed"]

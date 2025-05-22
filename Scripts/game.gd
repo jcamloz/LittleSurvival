@@ -4,7 +4,7 @@ class_name main extends Node2D
 @onready var scenario_container = $ScenarioContainer
 
 #Indice del escenario actual y array con los diferentes escenarios
-var current_index = 0
+var current_index = 2
 var scenarios = [
 	"res://Scenes/Scenarios/Scenario_0.tscn",
 	"res://Scenes/Scenarios/Scenario_1.tscn",
