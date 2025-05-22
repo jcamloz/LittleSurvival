@@ -31,9 +31,12 @@ signal menuVisibleChange
 """
 
 #Stats del jugador
-var life: int = 100
+var life: int = 90:
+	set(value):
+		life = clamp(value, 0, 100)
+
 var energy: int = 100
-var hunger: int = 100
+var hunger: int = 90
 
 #Envía la señal de cambio de visibilidad del menu con el valor 2 a verdadero si hay contenido extra
 #Eso significa que se accedió al menú extra desde otra fuente que no es la tecla "I" (abrir inventario)
@@ -56,6 +59,9 @@ var tool_levels = {
 	"fishing_rod": 1,
 	"pickaxe" : 1
 }
+
+func eat(food : Food):
+	life += food.heal
 
 #Método que mejora una de las herramientas
 func upgrade_tool(tool_name: String):

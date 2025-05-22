@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0nfnl4gnviwm"]
-
-[ext_resource type="Texture2D" uid="uid://cf841mckhdfv2" path="res://Assets/PNG/Default/item_sword.png" id="4_1kbqs"]
-
-[node name="Button" type="Button"]
-offset_right = 8.0
-offset_bottom = 8.0
-icon = ExtResource("4_1kbqs")

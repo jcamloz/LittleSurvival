@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="LootTable" load_steps=7 format=3 uid="uid://doygdq5lgd5nt"]
+
+[ext_resource type="Script" uid="uid://b6hpvty05mrsd" path="res://Scripts/ResourceScripts/LootItem.gd" id="1_ydl2m"]
+[ext_resource type="Script" uid="uid://dvmcvn73olrsw" path="res://Scripts/ResourceScripts/LootTable.gd" id="2_2gch7"]
+[ext_resource type="Resource" uid="uid://cskqakccosrn5" path="res://Resources/Items/Moneda.tres" id="2_bpod1"]
+[ext_resource type="Resource" uid="uid://b8ey6ib12axym" path="res://Resources/Items/Palo.tres" id="3_y8b6k"]
+
+[sub_resource type="Resource" id="Resource_edke1"]
+script = ExtResource("1_ydl2m")
+item = ExtResource("2_bpod1")
+amount = 3
+probability = 0.8
+metadata/_custom_type_script = "uid://b6hpvty05mrsd"
+
+[sub_resource type="Resource" id="Resource_q4jct"]
+script = ExtResource("1_ydl2m")
+item = ExtResource("3_y8b6k")
+amount = 1
+probability = 0.5
+metadata/_custom_type_script = "uid://b6hpvty05mrsd"
+
+[resource]
+script = ExtResource("2_2gch7")
+loot_items = Array[ExtResource("1_ydl2m")]([SubResource("Resource_edke1"), SubResource("Resource_q4jct")])
+metadata/_custom_type_script = "uid://dvmcvn73olrsw"

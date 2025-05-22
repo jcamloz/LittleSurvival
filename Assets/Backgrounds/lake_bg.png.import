@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mejqm4d5uitc"
-path="res://.godot/imported/house_pixel_bg.png-bef391bf226fc5da32bc6ac900ee33ff.ctex"
+uid="uid://bpmq0w5xthrd"
+path="res://.godot/imported/lake_bg.png-494813dd13133c77f89c7e2bdf25d00f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/house_pixel_bg.png"
-dest_files=["res://.godot/imported/house_pixel_bg.png-bef391bf226fc5da32bc6ac900ee33ff.ctex"]
+source_file="res://Assets/Backgrounds/lake_bg.png"
+dest_files=["res://.godot/imported/lake_bg.png-494813dd13133c77f89c7e2bdf25d00f.ctex"]
 
 [params]
 

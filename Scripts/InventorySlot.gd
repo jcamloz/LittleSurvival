@@ -10,6 +10,10 @@ var unfocus_texture = preload("res://Assets/PNG/Default/ui_box.png")
 
 var tile_data : Tile_data = null
 
+#CLICK VALUES
+var last_click_time = 0.0
+const DOUBLE_CLICK_MAX_DELAY := 0.3
+
 func set_item(slotData : Tile_data):
 	tile_data = slotData
 	#ASEGURO QUE AL CARGAR LOS DATOS, EL ARRAY ESTÉ CORRECTO (INCLUSO SI SE CORRIGE SOLO, POR SI ACASO)
@@ -86,6 +90,7 @@ func _drop_data(at_position, data):
 		
 	#DEBUG -> EMITIR SEÑAL AL MOVER UN ITEM DE UN LADO A OTRO
 	#emit_signal("slot_updated")
+
 #Intercamia los items entre casillas
 func swap_tile_data_with(other_data: Tile_data):
 	var temp_item = tile_data.item
@@ -96,3 +101,18 @@ func swap_tile_data_with(other_data: Tile_data):
 
 	other_data.item = temp_item
 	other_data.amount = temp_amount
+
+#--- CLICK ---
+func _gui_input(event: InputEvent) -> void:
+	#Compruebo si es click izquierdo
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		#Obtengo el tiempo actual en millis y lo adapto dividiendo entre 1000
+		var current_time = Time.get_ticks_msec() / 1000.0
+		#Compruebo que el tiempo desde el último click hasta el actual es válido
+		if current_time - last_click_time <= DOUBLE_CLICK_MAX_DELAY:
+			#Si la casilla clickeada tiene un item Food, lo usa y gasta
+			if !tile_data.is_empty() && tile_data.item is Food:
+				Player.eat(tile_data.item as Food)
+				tile_data.amount -=1
+		#Asigno al último click hecho el valor de tiempo actual
+		last_click_time = current_time

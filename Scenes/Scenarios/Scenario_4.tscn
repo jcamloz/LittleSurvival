@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4yhkq1cqhsp3"]
+[gd_scene load_steps=14 format=3 uid="uid://b4yhkq1cqhsp3"]
 
 [ext_resource type="Script" uid="uid://cihhopxjg7ayi" path="res://Scripts/ScenarioScripts/ScenarioController4.gd" id="1_2alt0"]
-[ext_resource type="Resource" uid="uid://cpbl87yek0wf3" path="res://Resources/LootTables/FishingLoot.tres" id="2_emaea"]
-[ext_resource type="Texture2D" uid="uid://b46xvn8hfaukp" path="res://Assets/pixel_bg.png" id="2_rgrgg"]
-[ext_resource type="PackedScene" uid="uid://b0nfnl4gnviwm" path="res://Scenes/ToolButton.tscn" id="3_emaea"]
+[ext_resource type="Resource" uid="uid://cpbl87yek0wf3" path="res://Resources/LootTables/ExploreLoot.tres" id="2_emaea"]
+[ext_resource type="Texture2D" uid="uid://b46xvn8hfaukp" path="res://Assets/Backgrounds/pixel_bg.png" id="2_rgrgg"]
 [ext_resource type="Texture2D" uid="uid://bb5ip28cidt6l" path="res://Assets/Axe.png" id="5_emaea"]
 [ext_resource type="Texture2D" uid="uid://bl5r2kg85hfk8" path="res://Assets/Chop.png" id="6_kwpsl"]
 
@@ -85,7 +84,7 @@ grow_vertical = 2
 texture = ExtResource("2_rgrgg")
 expand_mode = 2
 
-[node name="AxeButton" parent="." instance=ExtResource("3_emaea")]
+[node name="AxeButton" type="Button" parent="."]
 offset_left = 545.0
 offset_top = 387.0
 offset_right = 615.0
@@ -95,10 +94,10 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ExploreButton" type="Button" parent="."]
-offset_left = 512.0
-offset_top = 46.0
-offset_right = 616.0
-offset_bottom = 118.0
+offset_left = 97.0
+offset_top = 302.0
+offset_right = 201.0
+offset_bottom = 374.0
 text = "Explorar"
 
 [node name="ChopAnimation" type="AnimatedSprite2D" parent="."]

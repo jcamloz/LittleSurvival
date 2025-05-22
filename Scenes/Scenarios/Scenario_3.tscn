@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://bblhmihwkodrf"]
+
+[ext_resource type="Texture2D" uid="uid://bpmq0w5xthrd" path="res://Assets/Backgrounds/lake_bg.png" id="1_q8qo8"]
+[ext_resource type="Script" uid="uid://cdehake7xklxq" path="res://Scripts/ScenarioScripts/ScenarioController3.gd" id="1_tyus5"]
+[ext_resource type="Resource" uid="uid://cpbl87yek0wf3" path="res://Resources/LootTables/ExploreLoot.tres" id="2_2sp2j"]
+[ext_resource type="Texture2D" uid="uid://bb5ip28cidt6l" path="res://Assets/Axe.png" id="3_0f7t7"]
+[ext_resource type="Texture2D" uid="uid://bl5r2kg85hfk8" path="res://Assets/Chop.png" id="4_gi7cf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk30e"]
+atlas = ExtResource("4_gi7cf")
+region = Rect2(1344, 0, 224, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp0bq"]
+atlas = ExtResource("4_gi7cf")
+region = Rect2(0, 0, 224, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x675h"]
+atlas = ExtResource("4_gi7cf")
+region = Rect2(224, 0, 224, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vrnc"]
+atlas = ExtResource("4_gi7cf")
+region = Rect2(448, 0, 224, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7psk0"]
+atlas = ExtResource("4_gi7cf")
+region = Rect2(672, 0, 224, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdb3n"]
+atlas = ExtResource("4_gi7cf")
+region = Rect2(896, 0, 224, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6wrl"]
+atlas = ExtResource("4_gi7cf")
+region = Rect2(1120, 0, 224, 164)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2sp2j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk30e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp0bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x675h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vrnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7psk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdb3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6wrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk30e")
+}],
+"loop": false,
+"name": &"Chop",
+"speed": 5.0
+}]
+
+[node name="Scenario" type="Node2D"]
+script = ExtResource("1_tyus5")
+lootTable = ExtResource("2_2sp2j")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1160.0
+offset_bottom = 652.0
+texture = ExtResource("1_q8qo8")
+flip_h = true
+
+[node name="FishButton" type="Button" parent="."]
+offset_left = 366.0
+offset_top = 383.0
+offset_right = 436.0
+offset_bottom = 454.0
+icon = ExtResource("3_0f7t7")
+icon_alignment = 1
+expand_icon = true
+
+[node name="FishingAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(575, 501)
+scale = Vector2(0.609756, 0.609756)
+sprite_frames = SubResource("SpriteFrames_2sp2j")
+animation = &"Chop"
+speed_scale = 2.5
+
+[connection signal="pressed" from="FishButton" to="." method="_on_fish_button_pressed" binds= [&"fishing_rod"]]

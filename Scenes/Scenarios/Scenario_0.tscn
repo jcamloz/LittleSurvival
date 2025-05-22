@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://xtcqivpxt35"]
+[gd_scene load_steps=8 format=3 uid="uid://xtcqivpxt35"]
 
-[ext_resource type="Texture2D" uid="uid://mejqm4d5uitc" path="res://Assets/house_pixel_bg.png" id="1_magow"]
+[ext_resource type="Texture2D" uid="uid://mejqm4d5uitc" path="res://Assets/Backgrounds/house_pixel_bg.png" id="1_magow"]
 [ext_resource type="Script" uid="uid://cadtnvui7onhh" path="res://Scripts/ScenarioScripts/ScenarioController0.gd" id="1_oo8fr"]
-[ext_resource type="PackedScene" uid="uid://b0nfnl4gnviwm" path="res://Scenes/ToolButton.tscn" id="3_7c7oc"]
-[ext_resource type="Texture2D" uid="uid://6nyfcwb8cmvw" path="res://Assets/PNG/Default/tile_arch.png" id="4_s3jvr"]
+[ext_resource type="Texture2D" uid="uid://bquir335wrkem" path="res://Assets/Buttons/Arrow.png" id="3_1k5cu"]
 [ext_resource type="PackedScene" uid="uid://443hsy30jycs" path="res://Scenes/Inventory.tscn" id="5_2ku3p"]
 [ext_resource type="PackedScene" uid="uid://dpjvvab7jj1vg" path="res://Scenes/CraftMenu.tscn" id="6_1k5cu"]
 [ext_resource type="Resource" uid="uid://0im7somcwcp" path="res://Resources/Inventories/PlayerInv.tres" id="6_2ku3p"]
@@ -19,12 +18,14 @@ offset_right = 1164.0
 offset_bottom = 819.0
 texture = ExtResource("1_magow")
 
-[node name="CraftButton" parent="." instance=ExtResource("3_7c7oc")]
-offset_left = 518.0
-offset_top = 343.0
-offset_right = 590.0
-offset_bottom = 415.0
-icon = ExtResource("4_s3jvr")
+[node name="CraftButton" type="Button" parent="."]
+offset_left = 545.0
+offset_top = 387.0
+offset_right = 615.0
+offset_bottom = 458.0
+icon = ExtResource("3_1k5cu")
+icon_alignment = 1
+expand_icon = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 8
@@ -50,6 +51,7 @@ show = true
 inventory = ExtResource("6_s3jvr")
 
 [node name="CraftMenu" parent="." instance=ExtResource("6_1k5cu")]
+visible = false
 offset_left = 350.0
 offset_top = 224.0
 offset_right = 777.0

@@ -12,4 +12,5 @@ func toggleStorageMenuVisibility():
 	storageMenu.visible = not storageMenu.visible
 
 func _on_craft_button_pressed():
-	Player.extraOpen = true
+	if Player.invOpen == false:
+		Player.extraOpen = true
