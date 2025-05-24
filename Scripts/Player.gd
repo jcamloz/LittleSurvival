@@ -35,8 +35,14 @@ var life: int = 90:
 	set(value):
 		life = clamp(value, 0, 100)
 
-var energy: int = 100
-var hunger: int = 90
+var energy: int = 100:
+	set(value):
+		energy = clamp(value, 0, 100)
+var hunger: int = 95:
+	set(value):
+			hunger = clamp(value, 0, 100)
+#Todos los stats están preparados con clamp para no bajar de 0 ni superar 100
+
 
 #Envía la señal de cambio de visibilidad del menu con el valor 2 a verdadero si hay contenido extra
 #Eso significa que se accedió al menú extra desde otra fuente que no es la tecla "I" (abrir inventario)
@@ -60,8 +66,10 @@ var tool_levels = {
 	"pickaxe" : 1
 }
 
+#Aumenta la cantidad de salud y saciedad de la comida que se ha comido
 func eat(food : Food):
 	life += food.heal
+	hunger += food.hunger_recovery
 
 #Método que mejora una de las herramientas
 func upgrade_tool(tool_name: String):
@@ -70,6 +78,9 @@ func upgrade_tool(tool_name: String):
 		tool_levels[tool_name] += 1
 	else:
 		push_warning("Intentaste mejorar una herramienta que no existe: %s" % tool_name)
+
+func generate_floating_text(text : String):
+	assignedPlayer.generate_floating_text(text)
 
 func _process(delta):
 	if Input.is_action_just_pressed("inventory") && !extraOpen:

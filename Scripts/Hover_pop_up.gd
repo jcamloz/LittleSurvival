@@ -8,10 +8,6 @@ func show_info(title: String, desc: String):
 	labelTitle.text = title
 	labelDesc.text = desc
 	visible = true
-	if title == "":
-		labelTitle.visible = false
-	if desc == "":
-		labelDesc.visible = false
 
 func hide_info():
 	visible = false

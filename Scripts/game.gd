@@ -2,9 +2,12 @@ class_name main extends Node2D
 
 #Referencias al ScenarioContainer
 @onready var scenario_container = $ScenarioContainer
+@onready var left_arrow = $LeftArrow
+@onready var right_arrow = $RightArrow
+
 
 #Indice del escenario actual y array con los diferentes escenarios
-var current_index = 1
+var current_index = 3
 var scenarios = [
 	"res://Scenes/Scenarios/Scenario_0.tscn",
 	"res://Scenes/Scenarios/Scenario_3.tscn",
@@ -26,6 +29,7 @@ func load_scenario(index):
 	if scene is PackedScene:
 		var scene_instance = scene.instantiate()
 		scenario_container.add_child(scene_instance)
+		check_arrow_button_enabled()
 	else:
 		print("Error: no se pudo cargar el escenario en el índice ", index)
 
@@ -52,3 +56,16 @@ func _on_right_arrow_pressed():
 		TransitionScreen.transition()
 		await TransitionScreen.on_transition_finished
 		load_scenario(current_index)
+
+#Comprueba si los botones de las flechas pueden visualizarse y usarse
+#Estarán habilitadas si puedes desplazarte más a la derecha o a la izquierda
+func check_arrow_button_enabled():
+	if current_index + 1 > scenarios.size()-1:
+		right_arrow.visible = false
+	else:
+		right_arrow.visible = true
+	
+	if current_index - 1 < 0:
+		left_arrow.visible = false
+	else:
+		left_arrow.visible = true

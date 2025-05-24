@@ -7,6 +7,8 @@ class_name playerData extends AnimatedSprite2D
 @onready var extraContent = $MenuCanvas/MenuBackground/ExtraContent
 @onready var inventory = $MenuCanvas/MenuBackground/Inventory
 
+var label_scene = preload("res://Scenes/Floating_label.tscn")
+
 #Enlazo la señal "menuVisibleChange" con la función "_on_menu_background_change"
 func _ready():
 	Player.menuVisibleChange.connect(_on_menu_background_change)
@@ -31,3 +33,8 @@ func add_extra_content(extraScene : PackedScene):
 func clear_extra_content():
 	for child in extraContent.get_children():
 		child.queue_free()
+
+func generate_floating_text(text : String):
+	var label = label_scene.instantiate()
+	label.text = text
+	add_child(label)
