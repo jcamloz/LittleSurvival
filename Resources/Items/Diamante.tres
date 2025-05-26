@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://itiv4x4soep"]
+
+[ext_resource type="Script" uid="uid://1kc8a5ugdv7x" path="res://Scripts/ResourceScripts/Item.gd" id="1_5x318"]
+[ext_resource type="Texture2D" uid="uid://d3co12erujq5g" path="res://Assets/Items/Diamante.png" id="2_narrp"]
+
+[resource]
+script = ExtResource("1_5x318")
+name = "Diamante"
+max_stack = 99
+texture = ExtResource("2_narrp")
+metadata/_custom_type_script = "uid://1kc8a5ugdv7x"

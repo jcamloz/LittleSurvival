@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://bwgij3fk8ugfb"]
 
 [ext_resource type="Script" uid="uid://badyytl0qg18l" path="res://Scripts/ResourceScripts/Food.gd" id="1_rdr26"]
-[ext_resource type="Texture2D" uid="uid://coltsnnsnvhhu" path="res://Assets/PNG/Default/character_handRed.png" id="2_3k68o"]
+[ext_resource type="Texture2D" uid="uid://cbh0y3idsu1sj" path="res://Assets/Items/Food/Apple.png" id="2_3k68o"]
 
 [resource]
 script = ExtResource("1_rdr26")

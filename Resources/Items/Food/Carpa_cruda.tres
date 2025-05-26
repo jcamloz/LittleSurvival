@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://gceptove4v42"]
+
+[ext_resource type="Script" uid="uid://badyytl0qg18l" path="res://Scripts/ResourceScripts/Food.gd" id="1_js18h"]
+[ext_resource type="Texture2D" uid="uid://dw8t3254v0r2k" path="res://Assets/Items/Food/Carpa_cruda.png" id="2_dul4i"]
+
+[resource]
+script = ExtResource("1_js18h")
+heal = 5
+hunger_recovery = 5
+name = "Carpa cruda"
+max_stack = 99
+texture = ExtResource("2_dul4i")
+metadata/_custom_type_script = "uid://badyytl0qg18l"

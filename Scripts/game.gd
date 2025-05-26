@@ -7,7 +7,7 @@ class_name main extends Node2D
 
 
 #Indice del escenario actual y array con los diferentes escenarios
-var current_index = 3
+var current_index = 2
 var scenarios = [
 	"res://Scenes/Scenarios/Scenario_0.tscn",
 	"res://Scenes/Scenarios/Scenario_3.tscn",

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://c5deffauqu140"]
+
+[ext_resource type="Script" uid="uid://badyytl0qg18l" path="res://Scripts/ResourceScripts/Food.gd" id="1_rt6gj"]
+[ext_resource type="Texture2D" uid="uid://c4r4w0oa5pcpv" path="res://Assets/Items/Food/Taimén_crudo.png" id="2_r5khc"]
+
+[resource]
+script = ExtResource("1_rt6gj")
+heal = 30
+hunger_recovery = 40
+name = "Taimén crudo"
+max_stack = 99
+texture = ExtResource("2_r5khc")
+metadata/_custom_type_script = "uid://badyytl0qg18l"

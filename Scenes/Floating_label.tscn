@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckicpasob2rhq"]
+[gd_scene load_steps=3 format=3 uid="uid://ckicpasob2rhq"]
 
 [ext_resource type="Script" uid="uid://b7o1apjrphfd5" path="res://Scripts/FloatingLabel.gd" id="1_qokvv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qokvv"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="FloatingLabel" type="Label"]
 offset_right = 40.0
 offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_qokvv")
 script = ExtResource("1_qokvv")

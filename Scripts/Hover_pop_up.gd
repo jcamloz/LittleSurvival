@@ -7,6 +7,10 @@ class_name HoverPopUp extends CanvasLayer
 func show_info(title: String, desc: String):
 	labelTitle.text = title
 	labelDesc.text = desc
+	
+	labelTitle.visible = !title.is_empty()
+	labelDesc.visible = !desc.is_empty()
+	
 	visible = true
 
 func hide_info():

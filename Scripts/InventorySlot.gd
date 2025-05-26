@@ -133,7 +133,7 @@ func _gui_input(event: InputEvent) -> void:
 				if Player.hunger < 100 || Player.life < 100:
 					Player.eat(tile_data.item as Food)
 					tile_data.amount -=1
-					print(Player.life)
-					print(Player.hunger)
+					print("Vida Player: ", Player.life)
+					print("Hambre player: " , Player.hunger)
 		#Asigno al último click hecho el valor de tiempo actual
 		last_click_time = current_time

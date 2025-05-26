@@ -3,34 +3,34 @@
 [ext_resource type="Script" uid="uid://c6atj8gbdnkf" path="res://Scripts/ScenarioScripts/ScenarioController5.gd" id="1_2h5ef"]
 [ext_resource type="Texture2D" uid="uid://b3hvuvnlvb24c" path="res://Assets/Backgrounds/mine_bg.png" id="1_x61rx"]
 [ext_resource type="Resource" uid="uid://doygdq5lgd5nt" path="res://Resources/LootTables/MineLoot.tres" id="2_bub3p"]
-[ext_resource type="Texture2D" uid="uid://bb5ip28cidt6l" path="res://Assets/Axe.png" id="3_kpxl3"]
-[ext_resource type="Texture2D" uid="uid://bl5r2kg85hfk8" path="res://Assets/Chop.png" id="5_5w80i"]
+[ext_resource type="Texture2D" uid="uid://dlukxippajpes" path="res://Assets/pickaxe.png" id="4_5w80i"]
+[ext_resource type="Texture2D" uid="uid://dn035p024u00v" path="res://Assets/Mine.png" id="5_5w80i"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gk30e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sehbd"]
 atlas = ExtResource("5_5w80i")
 region = Rect2(1344, 0, 224, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gp0bq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljsn4"]
 atlas = ExtResource("5_5w80i")
 region = Rect2(0, 0, 224, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x675h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wpky"]
 atlas = ExtResource("5_5w80i")
 region = Rect2(224, 0, 224, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3vrnc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_au317"]
 atlas = ExtResource("5_5w80i")
 region = Rect2(448, 0, 224, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7psk0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_epgu7"]
 atlas = ExtResource("5_5w80i")
 region = Rect2(672, 0, 224, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tdb3n"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_64tli"]
 atlas = ExtResource("5_5w80i")
 region = Rect2(896, 0, 224, 164)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d6wrl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ws"]
 atlas = ExtResource("5_5w80i")
 region = Rect2(1120, 0, 224, 164)
 
@@ -38,31 +38,31 @@ region = Rect2(1120, 0, 224, 164)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gk30e")
+"texture": SubResource("AtlasTexture_sehbd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gp0bq")
+"texture": SubResource("AtlasTexture_ljsn4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x675h")
+"texture": SubResource("AtlasTexture_2wpky")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3vrnc")
+"texture": SubResource("AtlasTexture_au317")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7psk0")
+"texture": SubResource("AtlasTexture_epgu7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tdb3n")
+"texture": SubResource("AtlasTexture_64tli")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d6wrl")
+"texture": SubResource("AtlasTexture_3v2ws")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gk30e")
+"texture": SubResource("AtlasTexture_sehbd")
 }],
 "loop": false,
-"name": &"Chop",
+"name": &"Mine",
 "speed": 5.0
 }]
 
@@ -76,11 +76,11 @@ offset_bottom = 647.0
 texture = ExtResource("1_x61rx")
 
 [node name="MineButton" type="Button" parent="."]
-offset_left = 545.0
-offset_top = 387.0
-offset_right = 615.0
-offset_bottom = 458.0
-icon = ExtResource("3_kpxl3")
+offset_left = 553.0
+offset_top = 374.0
+offset_right = 623.0
+offset_bottom = 445.0
+icon = ExtResource("4_5w80i")
 icon_alignment = 1
 expand_icon = true
 
@@ -88,7 +88,7 @@ expand_icon = true
 position = Vector2(575, 501)
 scale = Vector2(0.609756, 0.609756)
 sprite_frames = SubResource("SpriteFrames_sehbd")
-animation = &"Chop"
+animation = &"Mine"
 speed_scale = 2.5
 
 [connection signal="pressed" from="MineButton" to="." method="_on_mine_button_pressed" binds= [&"pickaxe"]]

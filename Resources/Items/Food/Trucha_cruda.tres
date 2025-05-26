@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://uhwh7kbpxsq6"]
+
+[ext_resource type="Script" uid="uid://badyytl0qg18l" path="res://Scripts/ResourceScripts/Food.gd" id="1_l1wd0"]
+[ext_resource type="Texture2D" uid="uid://kvn0sx5crma4" path="res://Assets/Items/Food/Trucha_cruda.png" id="2_52b3q"]
+
+[resource]
+script = ExtResource("1_l1wd0")
+heal = 10
+hunger_recovery = 15
+name = "Trucha cruda"
+max_stack = 99
+texture = ExtResource("2_52b3q")
+metadata/_custom_type_script = "uid://badyytl0qg18l"

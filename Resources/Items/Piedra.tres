@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://rs0i4p6wgum0"]
+
+[ext_resource type="Script" uid="uid://1kc8a5ugdv7x" path="res://Scripts/ResourceScripts/Item.gd" id="1_khyd4"]
+[ext_resource type="Texture2D" uid="uid://btskifh6jm2b2" path="res://Assets/Items/Piedra.png" id="2_rxb45"]
+
+[resource]
+script = ExtResource("1_khyd4")
+name = "Piedra"
+max_stack = 99
+texture = ExtResource("2_rxb45")
+metadata/_custom_type_script = "uid://1kc8a5ugdv7x"

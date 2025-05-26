@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dm0nkrwptxp4f"]
+
+[ext_resource type="Script" uid="uid://1kc8a5ugdv7x" path="res://Scripts/ResourceScripts/Item.gd" id="1_ur5nh"]
+[ext_resource type="Texture2D" uid="uid://cvvq6t7emlmf8" path="res://Assets/Items/Oro.png" id="2_cilwy"]
+
+[resource]
+script = ExtResource("1_ur5nh")
+name = "Oro"
+max_stack = 99
+texture = ExtResource("2_cilwy")
+metadata/_custom_type_script = "uid://1kc8a5ugdv7x"

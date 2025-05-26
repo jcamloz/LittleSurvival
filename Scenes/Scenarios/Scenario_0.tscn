@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://xtcqivpxt35"]
 
-[ext_resource type="Texture2D" uid="uid://mejqm4d5uitc" path="res://Assets/Backgrounds/house_pixel_bg.png" id="1_magow"]
 [ext_resource type="Script" uid="uid://cadtnvui7onhh" path="res://Scripts/ScenarioScripts/ScenarioController0.gd" id="1_oo8fr"]
-[ext_resource type="Texture2D" uid="uid://bquir335wrkem" path="res://Assets/Buttons/Arrow.png" id="3_1k5cu"]
+[ext_resource type="Texture2D" uid="uid://4tjul44ic7wj" path="res://Assets/Backgrounds/house_bg.png" id="2_1k5cu"]
+[ext_resource type="Texture2D" uid="uid://dlxci6f42axjg" path="res://Assets/Hammer.png" id="3_1k5cu"]
 [ext_resource type="PackedScene" uid="uid://443hsy30jycs" path="res://Scenes/Inventory.tscn" id="5_2ku3p"]
 [ext_resource type="PackedScene" uid="uid://dpjvvab7jj1vg" path="res://Scenes/CraftMenu.tscn" id="6_1k5cu"]
 [ext_resource type="Resource" uid="uid://0im7somcwcp" path="res://Resources/Inventories/PlayerInv.tres" id="6_2ku3p"]
@@ -12,11 +12,13 @@
 script = ExtResource("1_oo8fr")
 
 [node name="Background" type="TextureRect" parent="."]
-offset_left = -5.0
-offset_top = -24.0
-offset_right = 1164.0
-offset_bottom = 819.0
-texture = ExtResource("1_magow")
+offset_left = -163.0
+offset_top = -50.0
+offset_right = 1317.0
+offset_bottom = 734.0
+texture = ExtResource("2_1k5cu")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="CraftButton" type="Button" parent="."]
 offset_left = 545.0

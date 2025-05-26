@@ -1,10 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4yhkq1cqhsp3"]
+[gd_scene load_steps=16 format=3 uid="uid://b4yhkq1cqhsp3"]
 
 [ext_resource type="Script" uid="uid://cihhopxjg7ayi" path="res://Scripts/ScenarioScripts/ScenarioController4.gd" id="1_2alt0"]
 [ext_resource type="Resource" uid="uid://cpbl87yek0wf3" path="res://Resources/LootTables/ExploreLoot.tres" id="2_emaea"]
 [ext_resource type="Texture2D" uid="uid://b46xvn8hfaukp" path="res://Assets/Backgrounds/pixel_bg.png" id="2_rgrgg"]
 [ext_resource type="Texture2D" uid="uid://bb5ip28cidt6l" path="res://Assets/Axe.png" id="5_emaea"]
+[ext_resource type="Texture2D" uid="uid://b3o5da33og1hx" path="res://Assets/boot.png" id="5_kwpsl"]
 [ext_resource type="Texture2D" uid="uid://bl5r2kg85hfk8" path="res://Assets/Chop.png" id="6_kwpsl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gp0bq"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gk30e"]
 atlas = ExtResource("6_kwpsl")
@@ -94,11 +99,23 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ExploreButton" type="Button" parent="."]
-offset_left = 97.0
-offset_top = 302.0
-offset_right = 201.0
-offset_bottom = 374.0
+offset_left = 173.0
+offset_top = 340.0
+offset_right = 243.0
+offset_bottom = 411.0
+icon = ExtResource("5_kwpsl")
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
+
+[node name="ExploreLabel" type="Label" parent="ExploreButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -30.0
+offset_right = 68.0
+offset_bottom = -7.0
 text = "Explorar"
+label_settings = SubResource("LabelSettings_gp0bq")
 
 [node name="ChopAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(575, 501)

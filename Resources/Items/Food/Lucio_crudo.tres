@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://cch63ugxpa52h"]
+
+[ext_resource type="Script" uid="uid://badyytl0qg18l" path="res://Scripts/ResourceScripts/Food.gd" id="1_m8270"]
+[ext_resource type="Texture2D" uid="uid://cx4qle8s0fcwp" path="res://Assets/Items/Food/Lucio_crudo.png" id="2_swmyp"]
+
+[resource]
+script = ExtResource("1_m8270")
+heal = 20
+hunger_recovery = 30
+name = "Lucio crudo"
+max_stack = 99
+texture = ExtResource("2_swmyp")
+metadata/_custom_type_script = "uid://badyytl0qg18l"

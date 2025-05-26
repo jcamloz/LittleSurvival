@@ -18,7 +18,6 @@ func _ready():
 #Si extraOpen es falso, cuando se abra el menú se mostrará el inventario
 #Si extraOpen es verdadero, cuando se abra el menú se mostrará la escena añadida
 func _on_menu_background_change(menuOpen : bool, extraOpen : bool):
-	print(menuOpen, " | ",extraOpen)
 	menuBackground.visible = menuOpen
 	extraContent.visible = extraOpen
 	if !extraOpen:

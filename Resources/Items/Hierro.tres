@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dwlmfnpsh48s7"]
+
+[ext_resource type="Script" uid="uid://1kc8a5ugdv7x" path="res://Scripts/ResourceScripts/Item.gd" id="1_uot7j"]
+[ext_resource type="Texture2D" uid="uid://dyqixsv2qdm2l" path="res://Assets/Items/Hierro.png" id="2_s1r56"]
+
+[resource]
+script = ExtResource("1_uot7j")
+name = "Hierro"
+max_stack = 99
+texture = ExtResource("2_s1r56")
+metadata/_custom_type_script = "uid://1kc8a5ugdv7x"

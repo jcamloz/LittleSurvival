@@ -9,11 +9,12 @@ font_size = 14
 script = ExtResource("1_whh1f")
 
 [node name="HoverPopUpContainer" type="PanelContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1.0
+offset_bottom = 47.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HoverPopUpContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="LableTitle" type="Label" parent="HoverPopUpContainer/VBoxContainer"]
 layout_mode = 2

@@ -1,9 +1,41 @@
-[gd_resource type="Resource" script_class="LootTable" load_steps=3 format=3 uid="uid://bvdsy1xladbau"]
+[gd_resource type="Resource" script_class="LootTable" load_steps=11 format=3 uid="uid://bvdsy1xladbau"]
 
 [ext_resource type="Script" uid="uid://b6hpvty05mrsd" path="res://Scripts/ResourceScripts/LootItem.gd" id="1_ksrd3"]
+[ext_resource type="Resource" uid="uid://gceptove4v42" path="res://Resources/Items/Food/Carpa_cruda.tres" id="2_kbt0i"]
 [ext_resource type="Script" uid="uid://dvmcvn73olrsw" path="res://Scripts/ResourceScripts/LootTable.gd" id="2_txfu4"]
+[ext_resource type="Resource" uid="uid://uhwh7kbpxsq6" path="res://Resources/Items/Food/Trucha_cruda.tres" id="3_h77i7"]
+[ext_resource type="Resource" uid="uid://cch63ugxpa52h" path="res://Resources/Items/Food/Lucio_crudo.tres" id="4_pqbkm"]
+[ext_resource type="Resource" uid="uid://c5deffauqu140" path="res://Resources/Items/Food/Taimen_crudo.tres" id="5_2qy1x"]
+
+[sub_resource type="Resource" id="Resource_ybynd"]
+script = ExtResource("1_ksrd3")
+item = ExtResource("2_kbt0i")
+amount = 1
+probability = 0.85
+metadata/_custom_type_script = "uid://b6hpvty05mrsd"
+
+[sub_resource type="Resource" id="Resource_hcsje"]
+script = ExtResource("1_ksrd3")
+item = ExtResource("3_h77i7")
+amount = 1
+probability = 0.6
+metadata/_custom_type_script = "uid://b6hpvty05mrsd"
+
+[sub_resource type="Resource" id="Resource_kbu8a"]
+script = ExtResource("1_ksrd3")
+item = ExtResource("4_pqbkm")
+amount = 1
+probability = 0.2
+metadata/_custom_type_script = "uid://b6hpvty05mrsd"
+
+[sub_resource type="Resource" id="Resource_py16u"]
+script = ExtResource("1_ksrd3")
+item = ExtResource("5_2qy1x")
+amount = 1
+probability = 0.1
+metadata/_custom_type_script = "uid://b6hpvty05mrsd"
 
 [resource]
 script = ExtResource("2_txfu4")
-loot_items = Array[ExtResource("1_ksrd3")]([])
+loot_items = Array[ExtResource("1_ksrd3")]([SubResource("Resource_ybynd"), SubResource("Resource_hcsje"), SubResource("Resource_kbu8a"), SubResource("Resource_py16u")])
 metadata/_custom_type_script = "uid://dvmcvn73olrsw"
