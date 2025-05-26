@@ -7,11 +7,29 @@ class_name playerData extends AnimatedSprite2D
 @onready var extraContent = $MenuCanvas/MenuBackground/ExtraContent
 @onready var inventory = $MenuCanvas/MenuBackground/Inventory
 
+#ProgressBars
+@onready var healthBar = $HealthBar
+@onready var healthLabel = $HealthBar/HealthLabel
+
+@onready var hungerBar = $HungerBar
+@onready var hungerLabel = $HungerBar/HungerLabel
+
+@onready var energyBar = $EnergyBar
+@onready var energyLabel = $EnergyBar/EnergyLabel
+
 var label_scene = preload("res://Scenes/Floating_label.tscn")
 
 #Enlazo la señal "menuVisibleChange" con la función "_on_menu_background_change"
 func _ready():
 	Player.menuVisibleChange.connect(_on_menu_background_change)
+	#Conecto las señales de cambio en las estadísticas del jugador con las barras que representan dichas estadísticas
+	Player.connect("healthChanged", health_bar_update)
+	Player.connect("hungerChanged", hunger_bar_update)
+	Player.connect("energyChanged", energy_bar_update)
+	#Actualizo por primera vez las barras de progreso
+	health_bar_update()
+	hunger_bar_update()
+	energy_bar_update()
 
 #Esta función recibe dos parámetros: menuOpen y extraOpen
 #Cuando menuOpen es true, se abre el menú.
@@ -37,3 +55,15 @@ func generate_floating_text(text : String):
 	var label = label_scene.instantiate()
 	label.text = text
 	add_child(label)
+
+func health_bar_update():
+	healthLabel.text = str(Player.life)
+	healthBar.value = Player.life
+
+func hunger_bar_update():
+	hungerLabel.text = str(Player.hunger)
+	hungerBar.value = Player.hunger
+
+func energy_bar_update():
+	energyLabel.text = str(Player.energy)
+	energyBar.value = Player.energy

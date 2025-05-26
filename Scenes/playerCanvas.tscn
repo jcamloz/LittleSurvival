@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cte54yk1550uk"]
+[gd_scene load_steps=14 format=3 uid="uid://cte54yk1550uk"]
 
 [ext_resource type="Texture2D" uid="uid://btyhstnhkse02" path="res://Assets/Player.png" id="2_ip5ys"]
 [ext_resource type="PackedScene" uid="uid://443hsy30jycs" path="res://Scenes/Inventory.tscn" id="2_mqrne"]
 [ext_resource type="Script" uid="uid://bh5gkqfwtqsqp" path="res://Scripts/Player_canvas.gd" id="2_v5unh"]
+[ext_resource type="Texture2D" uid="uid://8wo4oi27qjtv" path="res://Assets/Heart.png" id="3_6ncgd"]
+[ext_resource type="Texture2D" uid="uid://balkpwtx5n7g3" path="res://Assets/ProgressBar/ProgressBarUnder.png" id="3_ip5ys"]
 [ext_resource type="Resource" uid="uid://0im7somcwcp" path="res://Resources/Inventories/PlayerInv.tres" id="3_v5unh"]
+[ext_resource type="Texture2D" uid="uid://iqsay05djte4" path="res://Assets/ProgressBar/ProgressBarRectWhite.png" id="4_6o460"]
+[ext_resource type="Texture2D" uid="uid://brcsuc5w67fnd" path="res://Assets/Thigth.png" id="7_4xgsp"]
+[ext_resource type="Texture2D" uid="uid://dnf6fogee1kc4" path="res://Assets/Energy.png" id="7_pkl4k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqrne"]
 atlas = ExtResource("2_ip5ys")
@@ -27,11 +32,105 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_6ncgd"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_mqrne")
 animation = &"Idle"
 autoplay = "Idle"
 script = ExtResource("2_v5unh")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -157.0
+offset_top = -535.0
+offset_right = -13.0
+offset_bottom = -461.0
+value = 100.0
+texture_under = ExtResource("3_ip5ys")
+texture_progress = ExtResource("4_6o460")
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="HealthLabel" type="Label" parent="HealthBar"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 26.0
+offset_right = 130.0
+offset_bottom = 49.0
+label_settings = SubResource("LabelSettings_6ncgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthImg" type="TextureRect" parent="HealthBar"]
+layout_mode = 0
+offset_left = -52.0
+offset_top = 10.0
+offset_right = 7.0
+offset_bottom = 64.0
+texture = ExtResource("3_6ncgd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HungerBar" type="TextureProgressBar" parent="."]
+offset_left = -160.0
+offset_top = -486.0
+offset_right = -16.0
+offset_bottom = -412.0
+value = 100.0
+texture_under = ExtResource("3_ip5ys")
+texture_progress = ExtResource("4_6o460")
+tint_progress = Color(0.87451, 0.443137, 0.14902, 1)
+
+[node name="HungerLabel" type="Label" parent="HungerBar"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 26.0
+offset_right = 130.0
+offset_bottom = 49.0
+label_settings = SubResource("LabelSettings_6ncgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HungerImage" type="TextureRect" parent="HungerBar"]
+layout_mode = 0
+offset_left = -52.0
+offset_top = 10.0
+offset_right = 7.0
+offset_bottom = 64.0
+texture = ExtResource("7_4xgsp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EnergyBar" type="TextureProgressBar" parent="."]
+offset_left = -160.0
+offset_top = -439.0
+offset_right = -16.0
+offset_bottom = -365.0
+value = 100.0
+texture_under = ExtResource("3_ip5ys")
+texture_progress = ExtResource("4_6o460")
+tint_progress = Color(0.984314, 0.94902, 0.211765, 1)
+
+[node name="EnergyLabel" type="Label" parent="EnergyBar"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 26.0
+offset_right = 130.0
+offset_bottom = 49.0
+label_settings = SubResource("LabelSettings_6ncgd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnergyImage" type="TextureRect" parent="EnergyBar"]
+layout_mode = 0
+offset_left = -52.0
+offset_top = 10.0
+offset_right = 7.0
+offset_bottom = 64.0
+texture = ExtResource("7_pkl4k")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
 

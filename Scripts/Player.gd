@@ -4,6 +4,10 @@ class_name mainPlayer extends Node2D
 signal playerReady
 signal menuVisibleChange
 
+signal healthChanged
+signal hungerChanged
+signal energyChanged
+
 @onready var inventory : Inventory
 @onready var menuBackground : PanelContainer
 
@@ -31,16 +35,20 @@ signal menuVisibleChange
 """
 
 #Stats del jugador
-var life: int = 90:
+var life: int = 10:
 	set(value):
 		life = clamp(value, 0, 100)
+		healthChanged.emit()
 
 var energy: int = 100:
 	set(value):
 		energy = clamp(value, 0, 100)
+		energyChanged.emit()
+
 var hunger: int = 95:
 	set(value):
 			hunger = clamp(value, 0, 100)
+			hungerChanged.emit()
 #Todos los stats están preparados con clamp para no bajar de 0 ni superar 100
 
 

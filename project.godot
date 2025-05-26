@@ -20,6 +20,10 @@ config/icon="uid://crvwdhx7881on"
 TransitionScreen="*res://Scenes/Transition_screen.tscn"
 Player="*res://Scripts/Player.gd"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 inventory={

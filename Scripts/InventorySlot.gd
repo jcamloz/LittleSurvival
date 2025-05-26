@@ -128,12 +128,13 @@ func _gui_input(event: InputEvent) -> void:
 		var current_time = Time.get_ticks_msec() / 1000.0
 		#Compruebo que el tiempo desde el último click hasta el actual es válido
 		if current_time - last_click_time <= DOUBLE_CLICK_MAX_DELAY:
+			last_click_time = 0.0
 			#Si la casilla clickeada tiene un item Food, lo usa y gasta
 			if !tile_data.is_empty() && tile_data.item is Food:
 				if Player.hunger < 100 || Player.life < 100:
 					Player.eat(tile_data.item as Food)
 					tile_data.amount -=1
-					print("Vida Player: ", Player.life)
 					print("Hambre player: " , Player.hunger)
-		#Asigno al último click hecho el valor de tiempo actual
-		last_click_time = current_time
+		else:
+			#Asigno al último click hecho el valor de tiempo actual
+			last_click_time = current_time
