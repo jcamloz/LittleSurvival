@@ -1,4 +1,4 @@
-#Esta clase es un singletone, por lo que se puede acceder desde otro script
+#Esta clase es un singleton, por lo que se puede acceder desde otro script
 class_name mainPlayer extends Node2D
 
 signal playerReady
@@ -26,13 +26,6 @@ signal energyChanged
 			assignedPlayer.clear_extra_content()
 		else:
 			assignedPlayer.add_extra_content(extraContent)
-
-"""
-@onready var inventory : Inventory:
-	set(value):
-		inventory = value
-		emit_signal("invenoryReady")
-"""
 
 #Stats del jugador
 var life: int = 10:

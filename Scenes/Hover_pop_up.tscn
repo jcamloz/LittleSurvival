@@ -6,6 +6,7 @@
 font_size = 14
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_whh1f")
 
 [node name="HoverPopUpContainer" type="PanelContainer" parent="."]

@@ -57,13 +57,13 @@ func generate_floating_text(text : String):
 	add_child(label)
 
 func health_bar_update():
-	healthLabel.text = str(Player.life)
 	healthBar.value = Player.life
+	healthLabel.text = str(healthBar.value as int)
 
 func hunger_bar_update():
-	hungerLabel.text = str(Player.hunger)
 	hungerBar.value = Player.hunger
+	hungerLabel.text = str(hungerBar.value as int)
 
 func energy_bar_update():
-	energyLabel.text = str(Player.energy)
 	energyBar.value = Player.energy
+	energyLabel.text = str(energyBar.value as int)

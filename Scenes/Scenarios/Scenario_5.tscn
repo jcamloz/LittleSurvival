@@ -71,21 +71,24 @@ script = ExtResource("1_2h5ef")
 lootTable = ExtResource("2_bub3p")
 
 [node name="Background" type="TextureRect" parent="."]
-offset_right = 1155.0
-offset_bottom = 647.0
+offset_left = -3.0
+offset_top = -38.0
+offset_right = 1150.0
+offset_bottom = 694.0
 texture = ExtResource("1_x61rx")
+expand_mode = 1
 
 [node name="MineButton" type="Button" parent="."]
-offset_left = 553.0
-offset_top = 374.0
-offset_right = 623.0
-offset_bottom = 445.0
+offset_left = 745.293
+offset_top = 404.0
+offset_right = 815.293
+offset_bottom = 475.0
 icon = ExtResource("4_5w80i")
 icon_alignment = 1
 expand_icon = true
 
 [node name="MineAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(575, 501)
+position = Vector2(767.293, 531)
 scale = Vector2(0.609756, 0.609756)
 sprite_frames = SubResource("SpriteFrames_sehbd")
 animation = &"Mine"
