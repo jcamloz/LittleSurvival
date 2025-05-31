@@ -3,7 +3,8 @@ extends Resource
 
 @export var loot_items: Array[LootItem] = []
 
-#Devuelve un LootItem (item y cantidad) random. El nivel pasado por parámetro aumentará las probabilidades de los items
+#Devuelve un LootItem (item y cantidad) random. 
+#El nivel pasado por parámetro aumentará las probabilidades de los items
 func get_random_item(tool_level: int = 1) -> LootItem:
 	var selected_loot: LootItem = null
 

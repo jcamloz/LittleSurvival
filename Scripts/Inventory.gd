@@ -36,6 +36,7 @@ func _ready():
 		prepareInv()
 		#Guardo una copia inicial del inventario
 		save_data()
+
 #Guardo el estado actual del inventario
 func save_data():
 	#Limpio lo que había antes

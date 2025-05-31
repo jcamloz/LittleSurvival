@@ -46,7 +46,8 @@ func _on_mouse_entered():
 			itemSelected = tile_data.item as Food
 		else:
 			itemSelected = tile_data.item
-		hoverPopUp.show_info(itemSelected.name, (("Curación: +" + str(itemSelected.heal) + "\nSaciedad: +" + str(itemSelected.hunger_recovery))) if itemSelected is Food else "")
+		hoverPopUp.show_info(itemSelected.name, (("Curación: +" + str(itemSelected.heal) + 
+		"\nSaciedad: +" + str(itemSelected.hunger_recovery))) if itemSelected is Food else "")
 	else:
 		mouse_default_cursor_shape = Control.CURSOR_ARROW
 		if hoverPopUp.visible:
